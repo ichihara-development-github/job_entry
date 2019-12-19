@@ -1,0 +1,12 @@
+<%= form_for @user, class:"form-group" do |f| %>
+    <div class = "row">
+    　<div class = "col-md-10">
+       <label for="exampleFormControlSelect1">名前</label>
+       <%= f.text_field :name,class: "form-control", id:"exampleFormControlSelect1" %><br>
+       <label for="exampleFormControlSelect1">パスワード</label>
+       <%= f.text_field :password,class: "form-control", id:"exampleFormControlSelect1" %><br>
+       <label for="exampleFormControlSelect1">パスワード確認</label>
+       <%= f.text_field :password_confirmation,class: "form-control", id:"exampleFormControlSelect1" %><br>
+       
+        <%= f.submit"新規作成", class:"btn btn-primary"%>
+    <% end %>

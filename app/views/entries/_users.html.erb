@@ -1,0 +1,19 @@
+<% users.each do |user| %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">名前</th>
+      <th scope="col">mail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= user.id %></th>
+      <td><%= link_to "#{user.name}", user_path(user) %></td>
+      <td>mail</td>
+    </tr>
+   </tbody>
+</table>
+<% end %>

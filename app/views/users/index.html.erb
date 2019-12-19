@@ -1,0 +1,22 @@
+<h1>Users#index</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">名前</th>
+      <th scope="col">mail</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <% @users.each do |user| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= user.id %></th>
+      <td><%= link_to "#{user.name}", user_path(user) %></td>
+      <td scope = "row">mail</td>
+      <td scope = "ros"><%= render "shared/actions", table: "users", obj: user%></td>
+    </tr>
+   </tbody>
+   <% end %>
+</table>

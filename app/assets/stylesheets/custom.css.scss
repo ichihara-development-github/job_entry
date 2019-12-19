@@ -1,0 +1,63 @@
+
+@import "bootstrap";
+
+body{
+    background-color:rgb(245,245,245);
+}
+
+.right{
+    float:right;
+}
+
+.margin-both{
+    margin:0 20px;
+}
+
+.margin-vertical{
+    margin:10px 0;
+}
+
+.item{
+    box-shadow:2px 2px 2px rgb(200,200,200);
+    border-radius:5px;
+    height:200px;
+    
+}
+
+.radius{
+    border-radius:5px;
+    
+}
+
+.side-bar{
+    margin-top:70px;
+    height:700px;
+    background-color:white;
+    box-shadow:2px 2px 2px rgb(200,200,200);
+}
+
+#job-card{
+    position:relative;
+}
+
+.job-accordion-btn{
+    position:absolute;
+    bottom:5px;
+    margin:auto;
+    left:50%;
+    
+    &:hover{
+        cursor: pointer;
+    }
+    
+}
+
+.accordion{
+    display:none;
+}
+
+.search-form{
+    width:100%;
+    padding:10px;
+    background-color:white;
+}

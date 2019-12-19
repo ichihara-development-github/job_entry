@@ -1,0 +1,28 @@
+<h2>エントリーがあった仕事</h2>
+<% @entries.each do |entry| %>
+ <div class="card w-75 margin-vertical" id = "job-card">
+      <div class="card-body">
+          <h4 class="card-text red right" style = "color:red"><%= entry.job.reward %>円</h4>
+        <h3 class="card-title"><%= entry.job.name %></h3>
+        <h5>日程:<%= entry.job.date %></h5>
+        <h5>開始時間<%= entry.job.start %></h5>
+        <h5><%= entry.job.venue %></h5>エリア: <%= entry.job.area %>
+        
+        <div class = "right job-right">
+          
+         <%= render "shared/actions", obj: entry.job %>
+        </div>
+        <span class = "fas fa-chevron-down job-accordion-btn"></span>
+        <div class = "accordion">
+            <h5><%= entry.job.clothes %></h5>
+            <h5><%= entry.job.kind %></h5>
+            <p><%= entry.job.content %></p>
+        </div>
+        <%  entry_users = User.where(id: entry.user_id) %>
+        <div class = "margin-vertival">
+        <h5 class="mx-auto" style="width: 200px;">応募者:  <%= entry_users.count%>人</h5>
+        <%= render "users", users: entry_users %>
+        </div>
+      </div>
+    </div>
+<% end %>

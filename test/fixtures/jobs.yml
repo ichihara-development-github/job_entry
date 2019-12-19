@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  venue: MyString
+  area: MyString
+  date: 
+  start: MyString
+  reward: 1
+  type: 
+  clothes: MyString
+  content: MyString
+
+two:
+  name: MyString
+  venue: MyString
+  area: MyString
+  date: 
+  start: MyString
+  reward: 1
+  type: 
+  clothes: MyString
+  content: MyString

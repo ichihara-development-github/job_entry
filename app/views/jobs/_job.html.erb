@@ -1,0 +1,31 @@
+
+<% obj.each do |job| %>
+    <div class="card w-100 margin-vertical" id = "job-card">
+      <div class="card-body">
+          <h4 class="card-text red right" style = "color:red"><%= job.reward %>円</h4>
+        <h3 class="card-title"><%= job.name %></h3>
+        <h5>日程:<%= job.date %></h5>
+        <h5>開始時間<%= job.start %></h5>
+        <h5><%= job.venue %></h5>エリア: <%= job.area %>
+        
+        <div class = "right job-right">
+          <%= link_to like_path,{method: :post} do%>
+            <i class="far fa-star fa-lg margin-both" style = "color:orange"></i>
+          <% end %>
+          <% if current_user.admin %>
+          　<%= render "shared/actions", table: "jobs", obj: job %>
+          <% elsif Entry.find_by(user_id: current_user.id, job_id: job.id) %>
+            <button class = "btn btn-primary" disabled>エントリー済み</button>
+          <% else %>
+            <%= link_to "エントリー", entry_path(job),{method: :post, data: {confirm: "一度エントリーしたら取り消せません"} ,class: "btn btn-primary"} %>
+          <% end %>
+        </div>
+        <span class = "fas fa-chevron-down job-accordion-btn"></span>
+        <div class = "accordion">
+            <h5><%= job.clothes %></h5>
+            <h5><%= job.kind %></h5>
+            <p><%= job.content %></p>
+        </div>
+      </div>
+     </div>
+<% end %>
