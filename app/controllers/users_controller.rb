@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   
   before_action :set_user, only: [:show, :edit, :destroy]
+  before_action :admin?, only: [:destroy]
   
   def set_user
     @user = User.find(params[:id])
   end
+
 
   def index
     @users = User.all
@@ -55,4 +57,5 @@ private
 def user_params
   params.require(:user).permit(:name,:password, :password_comfirmation)
 end
+
 end

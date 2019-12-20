@@ -1,5 +1,6 @@
 <h1>Jobs#index</h1>
 <div class = "container margin-vertical">
+  <%= will_paginate @jobs, :previous_label => ' &lt 戻る', :next_label => '進む &gt' %>
 <% if current_user.admin %>
   <%= link_to "新規作成",new_job_path, class: "btn btn-success" %>
 <% end %>
@@ -17,28 +18,28 @@
     <label for="exampleFormControlSelect1">エリア</label>
        <%= select_tag("area", options_for_select(choice("area")), :class => "form-control", :id => "exampleFormControlSelect1", :include_blank => "未選択") %><br>
       
-      <label for="exampleFormControlSelect1">給料</label>
     <div class="row">
-      <div class="col-sm-4">
-        <%= text_field_tag "min", "", :class => "form-control", :placeholder => "下限" %>
-      </div>
-      ～
-      <div class="col-sm-4">
-        <%= text_field_tag "max", "", :class => "form-control", :placeholder => "上限" %>
-      </div>
-    </div>
-    <div class = "row">
       <div class = "col-md-4">
-      <label for="exampleFormControlSelect1">仕事のタイプ</label>
-       <%= select_tag("kind", options_for_select(choice("kind")), :class => "form-control", :id => "exampleFormControlSelect1", :include_blank => true) %><br>
-      </div>
+        <label class="control-label" for="">日時</label>
+ 　　　　　 <%= text_field_tag "date","", :class =>  'form-control datepicker' %>
+       </div>
       <div class = "col-md-4">
       <label for="exampleFormControlSelect1">開始時間</label>
        <%= select_tag("start", options_for_select(choice("start")), :class => "form-control", :id => "exampleFormControlSelect1", :include_blank => true) %><br>
        </div>
-       <div class = "col-md-4">
+    </div>
+    <div class = "row">
+      <div class = "col-md-3">
+      <label for="exampleFormControlSelect1">仕事のタイプ</label>
+       <%= select_tag("kind", options_for_select(choice("kind")), :class => "form-control", :id => "exampleFormControlSelect1", :include_blank => true) %><br>
+      </div>
+       <div class = "col-md-3">
       <label for="exampleFormControlSelect1">服装</label>
        <%= select_tag("clothes", options_for_select(choice("clothes")), :class => "form-control", :id => "exampleFormControlSelect1", :include_blank => true) %><br>
+       </div>
+       <div class = "col-md-3">
+      <label for="exampleFormControlSelect1">給料</label>
+       <%= select_tag("reward", options_for_select(choice("reward")), :class => "form-control", :id => "exampleFormControlSelect1", :include_blank => true) %><br>
        </div>
     </div>
   </div>
@@ -64,4 +65,5 @@
   <div class="row" id = "job-index">
       <%= render "job", obj: @jobs %>
   </div>
+<%= will_paginate @jobs, :previous_label => ' &lt 戻る', :next_label => '進む &gt' %>
 </div>

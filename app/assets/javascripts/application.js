@@ -11,10 +11,22 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap
+//= require moment
+//= require moment/ja.js
+//= require bootstrap-datetimepicker
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $('.datepicker').datetimepicker({
+    format : "YYYY/MM/DD",
+    icons: {
+      previous: "fa fa-arrow-left",
+      next: "fa fa-arrow-right"
+    }
+  });
+});
 
 $(function(){
     

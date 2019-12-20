@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new"
   get "logout", to: "sessions#destroy"
   
+  post "job_entry", to: "jobs#job_entry"
   get "entried", to: "users#entried"
   
-  post "entry", to: "jobs#entry"
   post "like", to: "likes#create"
   
   get "search", to: "jobs#search"

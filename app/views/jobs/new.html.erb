@@ -1,2 +1,67 @@
-<h1>Jobs#new</h1>
-<p>Find me in app/views/jobs/new.html.erb</p>
+<h2>お仕事新規作成</h2>
+
+<div class = "row">
+　<div class = "col-md-12">
+  <div class = "search-form">
+  　<div class = "container">
+  <div class="form-group">
+    <%= form_for @job do |f| %>
+     <div class="form-group">
+    <div class = "row">
+        <div class="col-md-6">
+          <label for="exampleFormControlSelect1">案件名</label>
+          <%= f.text_field :name, class:"form-control", placeholder:"案件名" %>
+        </div>
+        <div class="col-md-5">
+          <label for="exampleFormControlSelect1">給料</label>
+        <%= f.text_field :reward,{class:"form-control", placeholder:"給料"} %>
+      </div>
+    </div><br>
+    <div class="row">
+    　<div class = "col-md-3">
+        <label class="control-label" for="">日時</label>
+ 　　　　　 <%= f.text_field :date, class: 'form-control datepicker' %>
+       </div>
+        <div class = "col-md-6">
+       <label for="exampleFormControlSelect1">開始時間</label>
+       <div class="form-inline">
+            <%= f.select(:start,options_for_select(time),{include_blank:"未選択"},{class:"col-md-4 form-control", id: "exampleFormControlSelect1"})%>
+       </div>
+       
+       </div>
+    </div><br>
+    <div class = "row">
+      <div class="col-md-4">
+          <label for="exampleFormControlSelect1">会場</label>
+        <%= f.text_field :venue, class:"form-control", placeholder:"会場" %>
+      </div>
+      <div class = "col-md-4">
+            <label for="exampleFormControlSelect1">エリア</label>
+       <%= f.select(:area, options_for_select(prefecture), {include_blank:"未選択"}, {class:"form-control", id: "exampleFormControlSelect1"}) %><br>
+      
+        </div>
+    </div>
+    <div class = "row">
+      <div class = "col-md-4">
+      <label for="exampleFormControlSelect1">種類</label>
+       <%= f.text_field :kind, class:"form-control", placeholder:"種類" %>
+       </div>
+       <div class = "col-md-4">
+      <label for="exampleFormControlSelect1">服装</label>
+       <%= f.text_field :clothes, class:"form-control", placeholder:"服装" %>
+       </div>
+    </div><br>
+    <div class = "form-group">
+        <label for="exampleFormControlTextarea1">詳細</label>
+        <%= f.text_area :content, {class:"form-control", id: "exampleFormControlTextarea1", rows: "5"} %>
+    </div>
+
+  </div>
+
+    <%= f.submit "新規作成", class:"btn btn-success" %><br><br>
+   <% end %>
+  </div>
+  </div>
+    </div>
+  </div>
+</div>
